@@ -334,7 +334,7 @@ echo '<td>'."<a href=form_edit.php?NIP=".$data[0].">Ubah data</a>".'</td>';
 
 echo '</tr>';
 }
-//echo <td>"."<a href=form_edit.php?NIP=".$row['NIP'].">Ubah data</a>"."</td>
+
 echo '</table>';
 ?>
 					   
