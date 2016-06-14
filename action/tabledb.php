@@ -308,36 +308,50 @@
 					<p></p>
 
 				</div>
-<div class="col-md-12 fadeIn animate-onscroll">
+					
+
+				<div class="col-md-12 fadeIn animate-onscroll">
 
 					<h2 class="title-style-2">Tables <span class="title-under"></span></h2>
 					
 						<h4>TABLE STYLE 1</h4>
 						<table class="table table-style-1">
-<?php
-
-include "koneksi.php";
-
-echo '<table border="1"><tr bgcolor="#999"><td>NIP</td><td>Kode Pel</td><td>ID Kelas</td><td>UTS</td><td>UAS</td><td>Nilai Akhir</td><td>Ubah Nilai</td></tr>';
-$sql = "SELECT * FROM `nilai`";
-$lihatdata = mysql_query($sql);
-while ($data = mysql_fetch_array($lihatdata)) {
+					      <thead>
+					        <tr>
+					          <th>#</th>
+					          <th>NIP</th>
+					          <th>Kode Pel</th>
+					          <th>ID Kelas</th>
+							  <th>UTS</th>
+							  <th>UAS</th>
+							  <th>Nilai Akhir</th>
+							  <th>Ubah Nilai</th>
+					        </tr>
+					      </thead>
+					      <tbody>
+							 
+							  <?php
+							  include "koneksi.php";
+							$sql = "SELECT * FROM `nilai`";
+							$lihatdata = mysql_query($sql);
+							$i=1;
+					          while ($data = mysql_fetch_array($lihatdata)) {
 	
-echo '<tr>';
-echo '<td>'.$data[0].'</td>';
-echo '<td>'.$data[1].'</td>';
-echo '<td>'.$data[2].'</td>';
-echo '<td>'.$data[3].'</td>';
-echo '<td>'.$data[4].'</td>';
-echo '<td>'.$data[5].'</td>';
-echo '<td>'."<a href=form_edit.php?NIP=".$data[0].">Ubah data</a>".'</td>';
-
-echo '</tr>';
-}
-
-echo '</table>';
-?>
-					   
+								echo '<tr>';
+								echo '<th scope="row">'.$i.'</th>';
+								echo '<td>'.$data[0].'</td>';
+								echo '<td>'.$data[1].'</td>';
+								echo '<td>'.$data[2].'</td>';
+								echo '<td>'.$data[3].'</td>';
+								echo '<td>'.$data[4].'</td>';
+								echo '<td>'.$data[5].'</td>';
+								echo '<td>'."<a href=form_edit.php?NIP=".$data[0].">Ubah data</a>".'</td>';
+								echo '</tr>';
+								$i++;
+								}
+								?>				        				     
+					      </tbody>
+					    </table>   
 					     
 
 						<h4>TABLE STYLE 2</h4>
